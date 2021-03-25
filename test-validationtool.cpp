@@ -16,6 +16,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 }
 
 TEST_CASE("reports error when current passes NULL value") {
+  double currentReadings[] = {0.0, 0.02, 0.03, 0.33};
   int numOfCurReadings = sizeof(currentReadings) / sizeof(currentReadings[0]);
   REQUIRE(validateChargeFluctuationStatus(NULL, numOfCurReadings, CURRENT) == 0);
 }
