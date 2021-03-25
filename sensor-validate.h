@@ -5,10 +5,11 @@
 #define CURRENT 2
 #define SOC_MAX_THRESHOLD (double)0.05
 #define CURRENT_MAX_THRESHOLD (double)0.1
+#define INVALID_PARAMETER_REQUESTED 0
 
 /* Function Declarations */
 int checkChargeFluctuations(double value, double nextValue, double maxDelta);
 
-int validateChargeFluctuationStatus(double* values, int numOfValues, int inputChargeType);
+int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inputChargeType);
 
 double identifyChargeTypeForValidation(int dataInputChargeType);
