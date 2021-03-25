@@ -16,11 +16,10 @@ int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inp
   double retMaxThreshold = 0.0;
   int lastButOneIndex = numOfValues - 1;
   if(NULL == inputParam)
-	{
-		retFluctuationStatus = INVALID_PARAMETER_REQUESTED;
-	}
-  else
   {
+	  retFluctuationStatus = INVALID_PARAMETER_REQUESTED;
+	  return retFluctuationStatus;
+  }
   retMaxThreshold = identifyChargeTypeForValidation(inputChargeType);
   for(int i = 0; i < lastButOneIndex; i++) 
   {
@@ -28,7 +27,6 @@ int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inp
     {
       retFluctuationStatus = READINGS_DEVIATION_DETECTED;
     }
-  }
   }
   return retFluctuationStatus;
 }
