@@ -23,10 +23,7 @@ int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inp
   retMaxThreshold = identifyChargeTypeForValidation(inputChargeType);
   for(int i = 0; i < lastButOneIndex; i++) 
   {
-    if(!checkChargeFluctuations(inputParam[i], inputParam[i + 1], retMaxThreshold)) 
-    {
-      retFluctuationStatus = READINGS_DEVIATION_DETECTED;
-    }
+    retFluctuationStatus = checkChargeFluctuations(inputParam[i], inputParam[i + 1], retMaxThreshold)
   }
   return retFluctuationStatus;
 }
