@@ -3,11 +3,12 @@
 
 int checkChargeFluctuations(double value, double nextValue, double maxDelta) 
 {
+  int retFluctuationStatus = NO_DEVIATION_DETECTED;
   if(nextValue - value > maxDelta) 
   {
-    return READINGS_DEVIATION_DETECTED;
+    retFluctuationStatus = READINGS_DEVIATION_DETECTED;
   }
-  return NO_DEVIATION_DETECTED;
+  return retFluctuationStatus;
 }
 
 int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inputChargeType) 
