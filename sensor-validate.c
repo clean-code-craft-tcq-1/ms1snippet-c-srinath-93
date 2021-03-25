@@ -1,3 +1,4 @@
+#include <cstddef>
 #include "sensor-validate.h"
 
 int checkChargeFluctuations(double value, double nextValue, double maxDelta) 
@@ -23,7 +24,7 @@ int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inp
   retMaxThreshold = identifyChargeTypeForValidation(inputChargeType);
   for(int i = 0; i < lastButOneIndex; i++) 
   {
-    if(!checkChargeFluctuations(values[i], inputParam[i + 1], retMaxThreshold)) 
+    if(!checkChargeFluctuations(inputParam[i], inputParam[i + 1], retMaxThreshold)) 
     {
       retFluctuationStatus = READINGS_DEVIATION_DETECTED;
     }
