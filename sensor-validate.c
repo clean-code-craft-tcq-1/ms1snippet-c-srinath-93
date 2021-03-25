@@ -9,12 +9,14 @@ int checkChargeFluctuations(double value, double nextValue, double maxDelta)
   return NO_DEVIATION_DETECTED;
 }
 
-int validateSOCreadings(double* values, int numOfValues) 
+int validateChargeFluctuationStatus(double* values, int numOfValues, int inputChargeType) 
 {
+  double retMaxThreshold;
   int lastButOneIndex = numOfValues - 1;
+  retMaxThreshold = identifyChargeTypeForValidation(inputChargeType);
   for(int i = 0; i < lastButOneIndex; i++) 
   {
-    if(!checkChargeFluctuations(values[i], values[i + 1], 0.05)) 
+    if(!checkChargeFluctuations(values[i], values[i + 1], retMaxThreshold)) 
     {
       return READINGS_DEVIATION_DETECTED;
     }
@@ -22,15 +24,14 @@ int validateSOCreadings(double* values, int numOfValues)
   return NO_DEVIATION_DETECTED;
 }
 
-int validateCurrentreadings(double* values, int numOfValues) 
+double identifyChargeTypeForValidation(int dataInputChargeType) 
 {
-  int lastButOneIndex = numOfValues - 1;
-  for(int i = 0; i < lastButOneIndex; i++) 
+  double retMaxThreshold = 0.0;
+  switch(inputChargeType)
   {
-    if(!checkChargeFluctuations(values[i], values[i + 1], 0.1)) 
-    {
-      return READINGS_DEVIATION_DETECTED;
-    }
+    case SOC: retMaxThreshold = SOC_MAX_THRESHOLD; break;
+    case CURRENT: retMaxThreshold = CURRENT_MAX_THRESHOLD; break;
+    default: printf("Wrong input charge type requested\n"); break;
   }
-  return NO_DEVIATION_DETECTED;
+  return retMaxThreshold;
 }
