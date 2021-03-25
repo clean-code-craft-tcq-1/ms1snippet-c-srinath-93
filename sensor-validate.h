@@ -1,5 +1,9 @@
+/* Macros */
+#define NO_DEVIATION_DETECTED 1
+#define READINGS_DEVIATION_DETECTED 0
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta);
+/* Function Declarations */
+int checkChargeFluctuations(double value, double nextValue, double maxDelta);
 
 int validateSOCreadings(double* values, int numOfValues);
 
