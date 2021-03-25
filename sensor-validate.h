@@ -1,3 +1,6 @@
+#ifndef SENSOR_VALIDATION_H_
+#define SENSOR_VALIDATION_H_
+
 /* Macros */
 #define NO_DEVIATION_DETECTED 1
 #define READINGS_DEVIATION_DETECTED 0
@@ -13,3 +16,5 @@ int checkChargeFluctuations(double value, double nextValue, double maxDelta);
 int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inputChargeType);
 
 double identifyChargeTypeForValidation(int dataInputChargeType);
+
+#endif
