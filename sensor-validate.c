@@ -4,7 +4,7 @@
 int checkChargeFluctuations(double value, double nextValue, double maxDelta) 
 {
   int retFluctuationStatus = NO_DEVIATION_DETECTED;
-  if(nextValue - value > maxDelta) 
+  if((nextValue - value) > maxDelta) 
   {
     retFluctuationStatus = READINGS_DEVIATION_DETECTED;
   }
