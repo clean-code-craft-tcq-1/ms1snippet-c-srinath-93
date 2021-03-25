@@ -1,6 +1,20 @@
+#ifndef SENSOR_VALIDATION_H_
+#define SENSOR_VALIDATION_H_
 
-int _give_me_a_good_name(double value, double nextValue, double maxDelta);
+/* Macros */
+#define NO_DEVIATION_DETECTED 1
+#define READINGS_DEVIATION_DETECTED 0
+#define SOC 0
+#define CURRENT 1
+#define SOC_MAX_THRESHOLD (double)0.05
+#define CURRENT_MAX_THRESHOLD (double)0.1
+#define INVALID_PARAMETER_REQUESTED 0
 
-int validateSOCreadings(double* values, int numOfValues);
+/* Function Declarations */
+int checkChargeFluctuations(double value, double nextValue, double maxDelta);
 
-int validateCurrentreadings(double* values, int numOfValues);
+int validateChargeFluctuationStatus(double* inputParam, int numOfValues, int inputChargeType);
+
+double identifyChargeTypeForValidation(int dataInputChargeType);
+
+#endif
