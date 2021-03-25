@@ -1,10 +1,14 @@
 /* Macros */
 #define NO_DEVIATION_DETECTED 1
 #define READINGS_DEVIATION_DETECTED 0
+#define SOC 1
+#define CURRENT 2
+#define SOC_MAX_THRESHOLD (double)0.05
+#define CURRENT_MAX_THRESHOLD (double)0.1
 
 /* Function Declarations */
 int checkChargeFluctuations(double value, double nextValue, double maxDelta);
 
-int validateSOCreadings(double* values, int numOfValues);
+int validateChargeFluctuationStatus(double* values, int numOfValues, int inputChargeType);
 
-int validateCurrentreadings(double* values, int numOfValues);
+double identifyChargeTypeForValidation(int dataInputChargeType);
