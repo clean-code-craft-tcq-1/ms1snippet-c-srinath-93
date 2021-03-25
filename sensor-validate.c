@@ -27,11 +27,11 @@ int validateChargeFluctuationStatus(double* values, int numOfValues, int inputCh
 double identifyChargeTypeForValidation(int dataInputChargeType) 
 {
   double retMaxThreshold = 0.0;
-  switch(inputChargeType)
+  switch(dataInputChargeType)
   {
     case SOC: retMaxThreshold = SOC_MAX_THRESHOLD; break;
     case CURRENT: retMaxThreshold = CURRENT_MAX_THRESHOLD; break;
-    default: printf("Wrong input charge type requested\n"); break;
+    default: /* Wrong input charge type requested */; break;
   }
   return retMaxThreshold;
 }
